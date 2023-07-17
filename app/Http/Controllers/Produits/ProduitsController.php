@@ -39,22 +39,23 @@ class ProduitsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'eau' => ['required', 'string', 'max:255'],
-            'glucides' => ['required', 'string', 'max:255'],
-            'fibres' => ['required', 'string', 'max:255'],
-            'lipides' => ['required', 'string', 'max:255'],
+            'name'      => ['required', 'string', 'max:255'],
+            'eau'       => ['required', 'string', 'max:255'],
+            'glucides'  => ['required', 'string', 'max:255'],
+            'fibres'    => ['required', 'string', 'max:255'],
+            'lipides'   => ['required', 'string', 'max:255'],
             'proteines' => ['required', 'string', 'max:255'],
         ]);
 
         $produit = Produit::create([
-            'name' => $request->name,
-            'eau' => $request->eau,
-            'glucides' => $request->glucides,
-            'fibres' => $request->fibres,
-            'lipides' => $request->lipides,
+            'name'      => $request->name,
+            'eau'       => $request->eau,
+            'glucides'  => $request->glucides,
+            'fibres'    => $request->fibres,
+            'lipides'   => $request->lipides,
             'proteines' => $request->proteines,
-            'ident' => uniqid(),
+            'ident'     => uniqid(),
+            'user'      => $request->session()->get('user_ident'),
         ]);
 
         return redirect("/produit/form");

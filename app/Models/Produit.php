@@ -16,6 +16,7 @@ class Produit extends Model
      */
     protected $fillable = [
         'ident',
+        'user',
         'name',
         'eau',
         'glucides',

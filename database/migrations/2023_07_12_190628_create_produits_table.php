@@ -16,6 +16,7 @@ class CreateProduitsTable extends Migration
         Schema::create('produits', function (Blueprint $table) {
             $table->id();
             $table->string('ident')->length(25);
+            $table->string('user')->length(25);
             $table->string('name')->length(100);
             $table->float('eau', 8, 3);              // g/l
             $table->float('glucides', 8, 3);         // g
